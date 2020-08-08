@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans
+	xmlns:bean="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+	<http use-expressions="true">
+		<intercept-url pattern="/" access="permitAll()"/>
+		<intercept-url pattern="/VistaAdministrador" access="hasAuthority('Administrador')"/>
+		<intercept-url pattern="/VistaProfesional" access="hasAuthority('Profesional')"/>
+		<intercept-url pattern="/VistaCliente" access="hasAuthority('Cliente')"/>
+		<form-login login-page="/login" 
+					authentication-failure-url="/error"
+					username-parameter="username" 
+					password-parameter="password" />
+		<csrf/>
+		<logout logout-success-url="/login" />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+		<password-encoder hash="bcrypt"/>
+				<jdbc-user-service data-source-ref="ds"
+				users-by-username-query="select idusuario as username, password, 1 as enabled from usuario where idusuario=?"
+				authorities-by-username-query="SELECT idusuario as username, nombreperfil as role FROM usuario INNER JOIN perfil USING (idperfil) WHERE idusuario = ?" />
+			
+		</authentication-provider>
+	</authentication-manager>
+	
+</bean:beans>
