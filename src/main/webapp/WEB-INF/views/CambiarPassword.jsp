@@ -16,7 +16,7 @@
 	<c:out value="${mensaje}" />
 	</c:if>
 	
-	<form action="${pageContext.request.contextPath}/PasswordActualizado" method="post">
+	<form action="PasswordActualizado" method="post">
 	<table>
 		<tr>
 		<td><input type="hidden" name="userId" value="${datos.getId()}"></td>
@@ -41,12 +41,12 @@
 		
 	</table>
 		<br>
+		<input type="hidden" name="${_csrf.parameterName} "value="${_csrf.token}"/> 
 		<input type="submit" value="Cambiar Password">
+		
 	</form>
 	
-	<button onclick="window.location.href='${pageContext.request.contextPath}/VerUsuarios';">
-		Volver
-    	</button>
+	<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/VerUsuarios';" class="btn btn-primary" value="Volver">Volver</button>
     	
     <br/>
 		<a href="${pageContext.request.contextPath}/Logout">Cerrar sesión</a><br/>

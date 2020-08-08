@@ -58,9 +58,7 @@
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> <br> <br>
 		</form>
-		<button type="submit"
-			onclick="window.location.href='${pageContext.request.contextPath}/VistaAdministrador';"
-			class="btn btn-primary" value="Volver">Volver</button>
+		<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/VistaAdministrador';" class="btn btn-primary" value="Volver">Volver</button>
 		<button type="submit"
 			onclick="window.location.href='${pageContext.request.contextPath}/Logout';"
 			class="btn btn-primary" value="Cerrar Sesión">Cerrar Sesión</button>

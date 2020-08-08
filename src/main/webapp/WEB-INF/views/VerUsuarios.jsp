@@ -47,10 +47,9 @@
 	</c:forEach>
 		
 	</table>
-	<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/';" class="btn btn-primary" value="Volver">Volver</button>
+	<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/VistaAdministrador';" class="btn btn-primary" value="Volver">Volver</button>
     
-    <button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/Logout';" class="btn btn-primary" value="Cerrar Sesión">Cerrar Sesión</button>
-		<%-- <a href="${pageContext.request.contextPath}/Logout">Cerrar sesión</a><br/> --%>
+    <button type="submit" onclick="window.location.href='logout';" class="btn btn-primary" value="Cerrar Sesión">Cerrar Sesión</button>
 	</div>
 </body>
 </html>

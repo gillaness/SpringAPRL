@@ -118,7 +118,10 @@ public class UserController {
 	public ModelAndView actualizarPassword(@RequestParam("userId") String id, @RequestParam("nombre") String nombre, @RequestParam("perfil") int perfil,
 			@RequestParam("empresa") int empresa, @RequestParam("password") String password, @RequestParam("password1") String password1, Model model, RedirectAttributes mensajes) {
 		
-		User u = new User(id, nombre, password, perfil, empresa);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodedPassword = encoder.encode(password);
+		
+		User u = new User(id, nombre, encodedPassword, perfil, empresa);
 		
 		String mensaje = "";
 		

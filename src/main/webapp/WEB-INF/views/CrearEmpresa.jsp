@@ -46,22 +46,14 @@
       <label for="cantidad">Cantidad Empleados</label>
       <input type="text" class="form-control" placeholder="cantidad contacto" name="cantidad">
     </div>
-		
 		<br>
 		<button type="submit" class="btn btn-primary" name="crearempresa" value="Crear Empresa">Crear Empresa</button>
-		<!-- <input type="submit" name="crearempresa" value="Crear Empresa"> -->
 		<br><br>
-		<input type="hidden"
-    name="${_csrf.parameterName}"
-    value="${_csrf.token}"/> 
+		<input type="hidden" name="${_csrf.parameterName} "value="${_csrf.token}"/> 
 	</form>
-	<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/';" class="btn btn-primary" value="Volver">Volver</button>
-	<%-- <button onclick="window.location.href='${pageContext.request.contextPath}/Administrador';">
-		Volver
-    	</button> --%>
+		<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/VistaAdministrador';" class="btn btn-primary" value="Volver">Volver</button>
     	
-    	<button type="submit" onclick="window.location.href='${pageContext.request.contextPath}/Logout';" class="btn btn-primary" value="Cerrar Sesión">Cerrar Sesión</button>
-		<%-- <a href="${pageContext.request.contextPath}/Logout">Cerrar sesión</a><br/> --%>
+    	<button type="submit" onclick="window.location.href='logout';" class="btn btn-primary" value="Cerrar Sesión">Cerrar Sesión</button>
 	</div>
 </body>
 </html>
